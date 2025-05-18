@@ -8,15 +8,17 @@
     <groupId>com.example</groupId>
     <artifactId>java-app</artifactId>
     <version>1.0</version>
-    <packaging>war</packaging>  <!-- changed to war -->
+    <packaging>war</packaging>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <failOnMissingWebXml>false</failOnMissingWebXml> <!-- For servlet 3+ with annotations -->
     </properties>
 
     <dependencies>
-        <!-- Servlet API -->
+        <!-- Servlet API (provided by Tomcat) -->
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
@@ -43,6 +45,23 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.1</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml> <!-- allows annotation-only config -->
+                </configuration>
+            </plugin>
+
+            <!-- Clean plugin (optional but recommended) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.1.0</version>
+            </plugin>
+
+            <!-- Resources plugin (optional) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
             </plugin>
         </plugins>
     </build>
