@@ -1,14 +1,11 @@
-FROM tomcat:9.0-jdk11-openjdk
+FROM tomcat:10.1-jdk17-temurin
 
-# Remove default webapps to keep image clean (optional)
+# Clean default apps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy your WAR file to Tomcat webapps folder as ROOT.war (root context)
+# Deploy your WAR
 COPY target/java-app.war /usr/local/tomcat/webapps/ROOT.war
 
-
-# Expose Tomcat default port
 EXPOSE 8080
 
-# Start Tomcat server
 CMD ["catalina.sh", "run"]
