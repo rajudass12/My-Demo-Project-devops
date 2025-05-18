@@ -6,9 +6,25 @@ import java.io.IOException;
 
 @WebServlet("/")
 public class HelloWorld extends HttpServlet {
+
+    private String unusedField = "I am never used"; // ❌ Unused field
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setContentType("text/plain");
         resp.getWriter().write("Hello, DevOps from Servlet!");
+
+        // ❌ Hardcoded credentials (Security issue)
+        String password = "admin123";
+
+        // ❌ Empty catch block
+        try {
+            int x = 1 / 0;
+        } catch (Exception e) {
+            // ignored
+        }
+
+        // ❌ TODO comment
+        // TODO: improve this logic later
     }
 }
