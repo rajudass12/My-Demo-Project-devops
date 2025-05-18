@@ -5,7 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import java.io.IOException;
 
 @WebServlet("/")
-public class HelloServlet extends HttpServlet {
+public class HelloWorld extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setContentType("text/plain");
