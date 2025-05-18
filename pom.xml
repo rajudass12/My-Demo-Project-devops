@@ -14,11 +14,11 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <failOnMissingWebXml>false</failOnMissingWebXml> <!-- For servlet 3+ with annotations -->
+        <failOnMissingWebXml>false</failOnMissingWebXml> <!-- for Servlet 3+ without web.xml -->
     </properties>
 
     <dependencies>
-        <!-- Servlet API (provided by Tomcat) -->
+        <!-- Servlet API provided by Tomcat at runtime -->
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
@@ -46,18 +46,19 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.1</version>
                 <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml> <!-- allows annotation-only config -->
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <warName>${project.artifactId}</warName> <!-- Optional: name WAR after artifactId -->
                 </configuration>
             </plugin>
 
-            <!-- Clean plugin (optional but recommended) -->
+            <!-- Clean plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>3.1.0</version>
             </plugin>
 
-            <!-- Resources plugin (optional) -->
+            <!-- Resources plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
