@@ -1,8 +1,19 @@
-public class HelloWorld {
-    public static void main(String[] args) throws InterruptedException {
-        System.out.println("Hello, DevOps from Java!");
-        while (true) {
-            Thread.sleep(10000); // Sleep to keep container alive
-        }
+package com.example;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+@WebServlet("/hello")
+public class HelloServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/plain");
+        PrintWriter out = resp.getWriter();
+        out.println("Hello, DevOps from Tomcat Servlet!");
     }
 }
