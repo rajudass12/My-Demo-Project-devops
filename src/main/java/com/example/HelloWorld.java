@@ -15,7 +15,7 @@ public class HelloWorld extends HttpServlet {
         resp.getWriter().write("Hello, THis is Your First Devops Project..!");
 
         // ❌ Hardcoded credentials (Security issue)
-        String password = "admin123";
+        String password = $pass;
 
         // ❌ Empty catch block
         try {
