@@ -12,7 +12,7 @@ public class HelloWorld extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setContentType("text/plain");
-        resp.getWriter().write("Hello, THis is Your First Devops Project...Do More like this!");
+        resp.getWriter().write("Hello, THis is Your First Devops Project..!");
 
         // ❌ Hardcoded credentials (Security issue)
         String password = "admin123";
