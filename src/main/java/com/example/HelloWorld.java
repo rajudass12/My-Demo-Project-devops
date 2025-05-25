@@ -4,11 +4,12 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.WebServlet;
 import java.io.IOException;
 
+
 @WebServlet("/")
 public class HelloWorld extends HttpServlet {
 
     private String unusedField = "I am never used"; // ❌ Unused field
-
+    private String $pass = ""; // ❌ Unused field
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setContentType("text/plain");
